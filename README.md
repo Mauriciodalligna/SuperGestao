@@ -1,78 +1,258 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Super Gestão
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Sistema de gestão empresarial desenvolvido com Laravel 7.
 
-## About Laravel
+## 📋 Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP >= 7.2.5
+- Composer
+- Node.js >= 12.x e NPM
+- MySQL >= 5.7 ou MariaDB >= 10.2
+- Extensões PHP: BCMath, Ctype, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Instalação
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Clonar o repositório
 
-## Learning Laravel
+```bash
+git clone https://github.com/Mauriciodalligna/SuperGestao.git
+cd SuperGestao
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. Instalar dependências PHP
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+composer install
+```
 
-## Laravel Sponsors
+### 3. Configurar ambiente
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Copie o arquivo de exemplo de configuração:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+```bash
+cp .env.example .env
+```
 
-## Contributing
+Edite o arquivo `.env` e configure as seguintes variáveis:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+APP_NAME="Super Gestão"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
 
-## Code of Conduct
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=super_gestao
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 4. Gerar chave da aplicação
 
-## Security Vulnerabilities
+```bash
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 5. Criar banco de dados
 
-## License
+Crie um banco de dados MySQL com o nome configurado no `.env`:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```sql
+CREATE DATABASE super_gestao CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+### 6. Executar migrations
+
+```bash
+php artisan migrate
+```
+
+### 7. (Opcional) Popular banco de dados com dados de exemplo
+
+```bash
+php artisan db:seed
+```
+
+### 8. Instalar dependências JavaScript
+
+```bash
+npm install
+```
+
+### 9. Compilar assets
+
+Para desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Ou para produção:
+
+```bash
+npm run prod
+```
+
+Para desenvolvimento com watch (compila automaticamente ao salvar arquivos):
+
+```bash
+npm run watch
+```
+
+## 🌐 Executar o projeto
+
+### Servidor de desenvolvimento
+
+```bash
+php artisan serve
+```
+
+O projeto estará disponível em: `http://localhost:8000`
+
+### Servidor com hot reload (assets)
+
+Em um terminal, execute:
+
+```bash
+php artisan serve
+```
+
+Em outro terminal, execute:
+
+```bash
+npm run hot
+```
+
+Acesse: `http://localhost:8000` (os assets serão recarregados automaticamente)
+
+## 📁 Estrutura do Projeto
+
+```
+app_super_gestao/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/     # Controladores da aplicação
+│   ├── Fornecedor.php       # Model Fornecedor
+│   ├── SiteContato.php      # Model SiteContato
+│   └── User.php             # Model User
+├── config/                   # Arquivos de configuração
+├── database/
+│   ├── migrations/          # Migrations do banco de dados
+│   └── seeds/              # Seeders para popular dados
+├── public/                  # Arquivos públicos (CSS, JS, imagens)
+├── resources/
+│   ├── views/              # Views Blade
+│   ├── js/                 # Arquivos JavaScript
+│   └── sass/               # Arquivos SASS
+└── routes/
+    └── web.php             # Rotas da aplicação
+```
+
+## 🗄️ Banco de Dados
+
+O projeto utiliza as seguintes tabelas:
+
+- `users` - Usuários do sistema
+- `site_contatos` - Contatos recebidos pelo formulário
+- `fornecedores` - Cadastro de fornecedores
+- `produtos` - Cadastro de produtos
+- `produtos_detalhes` - Detalhes dos produtos
+- `unidades` - Unidades de medida
+- `failed_jobs` - Jobs que falharam na execução
+
+## 🛣️ Rotas Principais
+
+- `/` - Página inicial
+- `/sobre-nos` - Página sobre nós
+- `/contato` - Página de contato (GET) e envio de formulário (POST)
+- `/login` - Página de login
+- `/app/clientes` - Área de clientes
+- `/app/fornecedores` - Área de fornecedores
+- `/app/produtos` - Área de produtos
+
+## 🔧 Comandos Úteis
+
+### Limpar cache
+
+```bash
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+```
+
+### Criar novo controller
+
+```bash
+php artisan make:controller NomeController
+```
+
+### Criar nova migration
+
+```bash
+php artisan make:migration nome_da_migration
+```
+
+### Executar migrations
+
+```bash
+php artisan migrate
+```
+
+### Reverter última migration
+
+```bash
+php artisan migrate:rollback
+```
+
+### Criar novo seeder
+
+```bash
+php artisan make:seeder NomeSeeder
+```
+
+## 📝 Notas Importantes
+
+- Certifique-se de que o servidor MySQL está rodando antes de executar as migrations
+- O arquivo `.env` não deve ser commitado no repositório (já está no `.gitignore`)
+- Para produção, altere `APP_DEBUG=false` e `APP_ENV=production` no arquivo `.env`
+
+## 🐛 Troubleshooting
+
+### Erro: "Class not found"
+
+Execute:
+
+```bash
+composer dump-autoload
+```
+
+### Erro de permissão na pasta storage
+
+```bash
+chmod -R 775 storage bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+```
+
+### Erro ao executar migrations
+
+Verifique se:
+- O banco de dados existe
+- As credenciais no `.env` estão corretas
+- O usuário do MySQL tem permissões adequadas
+
+## 👨‍💻 Desenvolvimento
+
+Desenvolvido com:
+- Laravel 7
+- PHP 7.2.5+
+- MySQL
+- Bootstrap (via Laravel Mix)
+- SASS
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
