@@ -10,13 +10,18 @@ class ContatoController extends Controller
 {
     public function contato(){
         // Método GET - apenas exibe a página de contato
-        return view('site.contato', ['titulo' => 'Contato']);
+    $motivo_contato = [
+        '1' => 'Dúvida',
+        '2' => 'Elogio',
+        '3' => 'Reclamação'];
+    
+        return view('site.contato', ['titulo' => 'Contato', 'motivo_contato' => $motivo_contato]);
     }
     
     public function salvar(Request $request){
         // Validação dos dados (opcional mas recomendado)
         $request->validate([
-            'nome' => 'required|string|max:50',
+            'nome' => 'required|string|min:3|max:40',
             'telefone' => 'required|string|max:20',
             'email' => 'required|email|max:80',
             'motivo_contato' => 'required|integer|between:1,3',
@@ -35,4 +40,4 @@ class ContatoController extends Controller
         // Redirecionar de volta para a página de contato com mensagem de sucesso
         return redirect()->route('site.contato')->with('success', 'Mensagem enviada com sucesso!');
     }
-}
+    }
