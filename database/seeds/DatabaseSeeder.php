@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\SiteContato;
-
+use App\MotivoContato;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(FornecedorSeeder::class);
         $this->call(SiteContatoSeeder::class);
+        $this->call(MotivoContatoseeder::class);
     }
 }
